@@ -1,0 +1,112 @@
+{
+  "name": "eclipse-theia-14309",
+  "displayName": "eclipse-theia-14309",
+  "description": "Sample VS Code extension to verify viewsWelcome behavior in Eclipse Theia: https://github.com/eclipse-theia/theia/issues/14309",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dankeboy36/eclipse-theia-14309.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:eclipse-theia-14309.emptyView",
+    "onCommand:eclipse-theia-14309.setEnablementContextFoo",
+    "onCommand:eclipse-theia-14309.setEnablementContextBar",
+    "onCommand:eclipse-theia-14309.unsetEnablementContext",
+    "onCommand:eclipse-theia-14309.setWhenContextA",
+    "onCommand:eclipse-theia-14309.setWhenContextB",
+    "onCommand:eclipse-theia-14309.unsetWhenContext",
+    "onCommand:eclipse-theia-14309.helloWorld"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "eclipse-theia-14309.setEnablementContextFoo",
+        "title": "setEnablementContextFoo"
+      },
+      {
+        "command": "eclipse-theia-14309.setEnablementContextBar",
+        "title": "setEnablementContextBar"
+      },
+      {
+        "command": "eclipse-theia-14309.unsetEnablementContext",
+        "title": "unsetEnablementContext"
+      },
+      {
+        "command": "eclipse-theia-14309.setWhenContextA",
+        "title": "setWhenContextA"
+      },
+      {
+        "command": "eclipse-theia-14309.setWhenContextB",
+        "title": "setWhenContextB"
+      },
+      {
+        "command": "eclipse-theia-14309.unsetWhenContext",
+        "title": "unsetWhenContext"
+      },
+      {
+        "command": "eclipse-theia-14309.helloWorld",
+        "title": "helloWorld"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "eclipse-theia-14309",
+          "title": "Eclipse Theia #14309",
+          "icon": "resources/key-svgrepo-com.svg"
+        }
+      ]
+    },
+    "views": {
+      "eclipse-theia-14309": [
+        {
+          "id": "eclipse-theia-14309.emptyView",
+          "name": "Empty View"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "eclipse-theia-14309.emptyView",
+        "contents": "This content is always visible and enabled\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json)"
+      },
+      {
+        "view": "eclipse-theia-14309.emptyView",
+        "contents": "This is the same as above but is always disabled\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json). Only the command based links and buttons participate in the enablement check.",
+        "enablement": "false"
+      },
+      {
+        "view": "eclipse-theia-14309.emptyView",
+        "contents": "This content is enabled when the 'foo' context is set. Use the 'setEnablementContextFoo' command.\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json). Hidden when 'a' context is set. Use the 'setWhenContextA' command to hide it.",
+        "enablement": "eclipse-theia-14309-enablement == foo",
+        "when": "eclipse-theia-14309-when != a"
+      },
+      {
+        "view": "eclipse-theia-14309.emptyView",
+        "contents": "This content is enabled when the 'bar' context is set. Use the 'setEnablementContextBar' command.\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json). Hidden when 'b' content is set. Use the 'setWhenContextB' command to hide it.",
+        "enablement": "eclipse-theia-14309-enablement == bar",
+        "when": "eclipse-theia-14309-when != b"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "eslint": "^9.13.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
