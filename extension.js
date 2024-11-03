@@ -5,6 +5,7 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+	// https://github.com/eclipse-theia/theia/issues/9361
 	const alwaysEmptyTreeDataProvider = {
 		getTreeItem() { return {}; },
 		getChildren() { return []; },
