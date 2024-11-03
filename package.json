@@ -75,7 +75,7 @@
     "viewsWelcome": [
       {
         "view": "eclipse-theia-14309.emptyView",
-        "contents": "This content is always visible and enabled\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json)"
+        "contents": "$(heart) $(heart-filled) $(robot) This content is always visible and enabled\n[Primary button](command:eclipse-theia-14309.helloWorld)\nA [command link](command:eclipse-theia-14309.helloWorld), an [https link](https://github.com/eclipse-theia/theia/issues/14309), and a [file link](file:///package.json)"
       },
       {
         "view": "eclipse-theia-14309.emptyView",
